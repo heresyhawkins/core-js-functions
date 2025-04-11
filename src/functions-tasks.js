@@ -181,10 +181,10 @@ function retry(func, attempts) {
  */
 function logger(func, logFunc) {
   return function (...args) {
-    const logMessage = `${func.name}(${args.map((arg) => JSON.stringify(arg)).join(', ')})`;
-    logFunc(`${logMessage} starts`);
-    const result = func.apply(this, args);
-    logFunc(`${logMessage} ends`);
+    const functionString = `${func.name}(${args.map((item) => JSON.stringify(item)).join(',')})`;
+    logFunc(`${functionString} starts`);
+    const result = func(...args);
+    logFunc(`${functionString} ends`);
     return result;
   };
 }
