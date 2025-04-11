@@ -180,7 +180,7 @@ function retry(func, attempts) {
  *
  */
 function logger(func, logFunc) {
-  return function (...args) {
+  return function loggerSecond(...args) {
     const functionString = `${func.name}(${args.map((item) => JSON.stringify(item)).join(',')})`;
     logFunc(`${functionString} starts`);
     const result = func(...args);
